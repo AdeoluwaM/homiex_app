@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "835235978526",
+    "project_id": "homiex-74479",
+    "storage_bucket": "homiex-74479.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:835235978526:android:0b1ab7be4fe2323ce57d0f",
+        "android_client_info": {
+          "package_name": "com.example.homix"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "835235978526-t7b6j6kmgpn0v6qhkirt6gp5qb0pniqi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmQawvv7qIsVZZvdhYbH5FGECjHfkIe74"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "835235978526-t7b6j6kmgpn0v6qhkirt6gp5qb0pniqi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
