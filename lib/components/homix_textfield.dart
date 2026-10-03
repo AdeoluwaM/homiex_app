@@ -3,7 +3,7 @@ import 'package:homix/theme/app_colors.dart';
 import 'package:homix/typography/text_style.dart';
 
 class HomixTextfield extends StatelessWidget {
-  HomixTextfield(
+  const HomixTextfield(
       {super.key,
       required this.controller,
       required this.obscureText,

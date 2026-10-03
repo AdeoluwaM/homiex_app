@@ -1,16 +1,147 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:h_alert_dialog/h_alert_dialog.dart';
 import 'package:homix/components/homix_custom_botton.dart';
 import 'package:homix/components/homix_textfield.dart';
 import 'package:homix/gen/assets.gen.dart';
-import 'package:homix/pages/sign_up_page.dart';
+import 'package:homix/router/app_router.dart';
 import 'package:homix/theme/app_colors.dart';
 import 'package:homix/typography/text_style.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/services.dart';
 
-class SignInPage extends StatelessWidget {
+@RoutePage()
+class SignInPage extends StatefulWidget {
   SignInPage({super.key});
 
+  @override
+  State<SignInPage> createState() => _SignInPageState();
+}
+
+class _SignInPageState extends State<SignInPage> {
   final TextEditingController emailController = TextEditingController();
+
   final TextEditingController passwordController = TextEditingController();
+
+  // void signIn() async {
+  // if (emailController.text.trim().isEmpty ||
+  //       passwordController.text.isEmpty) {
+  //     HAlertDialog.showCustomAlertBox(
+  //     context: context,
+  //     timerInSeconds: 3,
+  //     backgroundColor: Colors.redAccent,
+  //     title: 'Error',
+  //     description: "Please fill in all fields",
+  //     icon: Icons.error_outline,
+  //   );
+  //     return;
+  //   }
+  //   showDialog(
+  //       context: context,
+  //       builder: (context) {
+  //         return const Center(
+  //           child: CircularProgressIndicator(),
+  //         );
+  //       });
+  //       // Navigator.pop(context);
+        
+  //   try {
+  //     await FirebaseAuth.instance.signInWithEmailAndPassword(
+  //         email: emailController.text, password: passwordController.text);
+
+  //         if (!mounted) return;
+
+  //         Navigator.pop(context);
+
+  //         context.pushRoute(HomeRoute());
+
+  //   } on FirebaseAuthException catch (e) {
+  //     Navigator.pop(context);
+  //     HAlertDialog.showCustomAlertBox(
+  //       context: context,
+  //       timerInSeconds: 3,
+  //       backgroundColor: Colors.redAccent,
+  //       title: 'Error',
+  //       description: e.message.toString(),
+  //       icon: Icons.error_outline,
+  //     );
+  //     // print(e);
+  //   }
+  //   return;
+  // }
+
+
+  void signIn() async {
+  // Local validation first
+  if (emailController.text.trim().isEmpty ||
+      passwordController.text.isEmpty) {
+    HAlertDialog.showCustomAlertBox(
+      context: context,
+      timerInSeconds: 3,
+      backgroundColor: Colors.redAccent,
+      title: 'Error',
+      description: "Please fill in all fields",
+      icon: Icons.error_outline,
+    );
+    return;
+  }
+
+  // Show loading dialog
+  showDialog(
+    context: context,
+    barrierDismissible: false,
+    builder: (_) => const Center(child: CircularProgressIndicator()),
+  );
+
+  try {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: emailController.text.trim(),
+      password: passwordController.text,
+    );
+
+    if (!mounted) return;
+
+    // Close the loading dialog
+    Navigator.of(context).pop();
+
+    // Replace the entire stack with Home so back-press exits the app
+    context.router.replaceAll([const HomeRoute()]);
+  } on FirebaseAuthException catch (e) {
+    if (!mounted) return;
+
+    // Close the loading dialog
+    Navigator.of(context).pop();
+
+    // Give the dialog a moment to fully dismiss before showing the alert
+    await Future.delayed(const Duration(milliseconds: 200));
+    if (!mounted) return;
+
+    HAlertDialog.showCustomAlertBox(
+      context: context,
+      timerInSeconds: 3,
+      backgroundColor: Colors.redAccent,
+      title: 'Error',
+      description: e.message ?? 'Authentication failed.',
+      icon: Icons.error_outline,
+    );
+  } catch (e) {
+    if (!mounted) return;
+    Navigator.of(context).pop();
+    await Future.delayed(const Duration(milliseconds: 200));
+    if (!mounted) return;
+    HAlertDialog.showCustomAlertBox(
+      context: context,
+      timerInSeconds: 3,
+      backgroundColor: Colors.redAccent,
+      title: 'Error',
+      description: 'Something went wrong: $e',
+      icon: Icons.error_outline,
+    );
+  }
+}
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +209,7 @@ class SignInPage extends StatelessWidget {
                         buttonName: "Sign in",
                         buttonColor: HomixColors.whiteColor,
                         textColor: HomixColors.backgroundColor,
-                        onTap: () {},
+                        onTap: signIn,
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(
@@ -141,11 +272,7 @@ class SignInPage extends StatelessWidget {
                           ),
                           GestureDetector(
                             onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => SignUpPage()),
-                              );
+                              context.pushRoute(SignUpRoute());
                             },
                             child: Text(
                               "Sign Up",

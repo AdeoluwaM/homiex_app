@@ -1,8 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:homix/firebase_options.dart';
-import 'package:homix/pages/sign_in_page.dart';
-import 'package:homix/pages/sign_up_page.dart';
+import 'package:homix/router/app_router.dart';
 import 'package:homix/theme/app_colors.dart';
 
 void main() async {
@@ -19,11 +18,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+
+    final appRouter = AppRouter();
+    
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'Homix App',
       theme: ThemeData(scaffoldBackgroundColor: HomixColors.backgroundColor),
-      home: SignUpPage(),
+      routerConfig: appRouter.config(),
+      // home: SignUpPage(),
     );
   }
 }

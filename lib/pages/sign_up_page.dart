@@ -1,15 +1,20 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:homix/components/homix_custom_botton.dart';
 import 'package:homix/components/homix_textfield.dart';
 import 'package:homix/gen/assets.gen.dart';
 import 'package:homix/pages/sign_in_page.dart';
+import 'package:homix/router/app_router.dart';
 import 'package:homix/theme/app_colors.dart';
 import 'package:homix/typography/text_style.dart';
 import 'package:h_alert_dialog/h_alert_dialog.dart';
 
+
+
+@RoutePage()
 class SignUpPage extends StatefulWidget {
-  SignUpPage({super.key});
+  const SignUpPage({super.key});
 
   @override
   State<SignUpPage> createState() => _SignUpPageState();
@@ -73,6 +78,7 @@ class _SignUpPageState extends State<SignUpPage> {
       // Close loading dialog
       if (!mounted) return;
       Navigator.pop(context);
+      context.pushRoute(HomeRoute());
 
       // Registration successful
       HAlertDialog.showCustomAlertBox(
@@ -83,6 +89,8 @@ class _SignUpPageState extends State<SignUpPage> {
         description: 'Account created successfully!',
         icon: Icons.check_circle,
       );
+
+      context.pushRoute(HomeRoute());
     } on FirebaseAuthException catch (e) {
       // Close loading dialog
       if (!mounted) return;
@@ -257,11 +265,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           ),
                           GestureDetector(
                             onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => SignInPage()),
-                              );
+                              context.pushRoute(SignInRoute());
                             },
                             child: Text(
                               "Sign In",
