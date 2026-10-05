@@ -33,6 +33,10 @@ class $AssetsImagesGen {
   AssetGenImage get homixLogo =>
       const AssetGenImage('assets/images/homix_logo.png');
 
+  /// File path: assets/images/homix_profile_photo.jpg
+  AssetGenImage get homixProfilePhoto =>
+      const AssetGenImage('assets/images/homix_profile_photo.jpg');
+
   /// File path: assets/images/instagram_logo.png
   AssetGenImage get instagramLogo =>
       const AssetGenImage('assets/images/instagram_logo.png');
@@ -46,8 +50,15 @@ class $AssetsImagesGen {
       const AssetGenImage('assets/images/logo_png1.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [appleLogo, googleLogo, homixLogo, instagramLogo, logoPng, logoPng1];
+  List<AssetGenImage> get values => [
+        appleLogo,
+        googleLogo,
+        homixLogo,
+        homixProfilePhoto,
+        instagramLogo,
+        logoPng,
+        logoPng1
+      ];
 }
 
 class $AssetsFontsPoppinsGen {

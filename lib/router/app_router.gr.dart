@@ -11,6 +11,38 @@
 part of 'app_router.dart';
 
 /// generated route for
+/// [AirConditionPage]
+class AirConditionRoute extends PageRouteInfo<void> {
+  const AirConditionRoute({List<PageRouteInfo>? children})
+      : super(AirConditionRoute.name, initialChildren: children);
+
+  static const String name = 'AirConditionRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const AirConditionPage();
+    },
+  );
+}
+
+/// generated route for
+/// [AuthServicesPage]
+class AuthServicesRoute extends PageRouteInfo<void> {
+  const AuthServicesRoute({List<PageRouteInfo>? children})
+      : super(AuthServicesRoute.name, initialChildren: children);
+
+  static const String name = 'AuthServicesRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const AuthServicesPage();
+    },
+  );
+}
+
+/// generated route for
 /// [HomePage]
 class HomeRoute extends PageRouteInfo<void> {
   const HomeRoute({List<PageRouteInfo>? children})
