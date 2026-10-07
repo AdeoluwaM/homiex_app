@@ -4,6 +4,7 @@ import 'package:homix/components/gadget_card.dart';
 import 'package:homix/components/homix_nav_bar.dart';
 import 'package:homix/components/power_toggle.dart';
 import 'package:homix/gen/assets.gen.dart';
+import 'package:homix/router/app_router.dart';
 import 'package:homix/theme/app_colors.dart';
 import 'package:homix/typography/text_style.dart';
 
@@ -28,24 +29,28 @@ class _HomePageState extends State<HomePage> {
       'title': 'Air condition',
       'subtitle': 'Temperature',
       'status': '-17c',
+      // 'route': AirConditionRoute(),
     },
     {
       'icon': Icons.lightbulb_outline,
       'title': 'Smart bulb',
       'subtitle': 'Voltage',
       'status': '----',
+      // 'route': LightControlRoute(),
     },
     {
       'icon': Icons.tv,
       'title': 'Smart TV',
       'subtitle': 'Displaying',
       'status': '----',
+      // 'route': TvControlRoute(),
     },
     {
       'icon': Icons.album_outlined,
       'title': 'Bluetooth Mp3',
       'subtitle': 'Not connected',
       'status': '----',
+      // 'route': MusicControlRoute(),
     },
   ];
 
@@ -151,12 +156,33 @@ class _HomePageState extends State<HomePage> {
                       _isOn[index] = val;
                     });
                   },
+                  // onTap: () {
+                  //   setState(() {
+                  //     _selectedIndex = index;
+                  //     context.router.push(device['route']);
+                  //     // _selectedIndex = _selectedIndex == index ? null : index;
+                  //     // The Navigation to the Next page will be Here ???
+                  //   });
+                  // },
                   onTap: () {
-                    setState(() {
-                      _selectedIndex = index;
-                      // _selectedIndex = _selectedIndex == index ? null : index;
-                      // The Navigation to the Next page will be Here ???
-                    });
+                    final title = device['title'] as String;
+
+                    setState(() => _selectedIndex = index);
+
+                    switch (index) {
+                      case 0:
+                        context.router.push(AirConditionRoute(title: title));
+                        break;
+                      case 1:
+                        context.router.push(LightControlRoute(title: title));
+                        break;
+                      case 2:
+                        context.router.push(TvControlRoute(title: title));
+                        break;
+                      case 3:
+                        context.router.push(MusicControlRoute(title: title));
+                        break;
+                    }
                   },
                 );
               },

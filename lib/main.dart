@@ -4,6 +4,8 @@ import 'package:homix/firebase_options.dart';
 import 'package:homix/router/app_router.dart';
 import 'package:homix/theme/app_colors.dart';
 
+
+final appRouter = AppRouter();
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    final appRouter = AppRouter();
+    // final appRouter = AppRouter();
     
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,

@@ -21,6 +21,10 @@ class $AssetsFontsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/ac_image.png
+  AssetGenImage get acImage =>
+      const AssetGenImage('assets/images/ac_image.png');
+
   /// File path: assets/images/apple_logo.png
   AssetGenImage get appleLogo =>
       const AssetGenImage('assets/images/apple_logo.png');
@@ -51,6 +55,7 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [
+        acImage,
         appleLogo,
         googleLogo,
         homixLogo,
