@@ -16,10 +16,17 @@ class AirConditionRoute extends PageRouteInfo<AirConditionRouteArgs> {
   AirConditionRoute({
     Key? key,
     required String title,
+    required bool isOn,
+    required ValueChanged<bool> onToggle,
     List<PageRouteInfo>? children,
   }) : super(
           AirConditionRoute.name,
-          args: AirConditionRouteArgs(key: key, title: title),
+          args: AirConditionRouteArgs(
+            key: key,
+            title: title,
+            isOn: isOn,
+            onToggle: onToggle,
+          ),
           initialChildren: children,
         );
 
@@ -29,32 +36,50 @@ class AirConditionRoute extends PageRouteInfo<AirConditionRouteArgs> {
     name,
     builder: (data) {
       final args = data.argsAs<AirConditionRouteArgs>();
-      return AirConditionPage(key: args.key, title: args.title);
+      return AirConditionPage(
+        key: args.key,
+        title: args.title,
+        isOn: args.isOn,
+        onToggle: args.onToggle,
+      );
     },
   );
 }
 
 class AirConditionRouteArgs {
-  const AirConditionRouteArgs({this.key, required this.title});
+  const AirConditionRouteArgs({
+    this.key,
+    required this.title,
+    required this.isOn,
+    required this.onToggle,
+  });
 
   final Key? key;
 
   final String title;
 
+  final bool isOn;
+
+  final ValueChanged<bool> onToggle;
+
   @override
   String toString() {
-    return 'AirConditionRouteArgs{key: $key, title: $title}';
+    return 'AirConditionRouteArgs{key: $key, title: $title, isOn: $isOn, onToggle: $onToggle}';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! AirConditionRouteArgs) return false;
-    return key == other.key && title == other.title;
+    return key == other.key &&
+        title == other.title &&
+        isOn == other.isOn &&
+        onToggle == other.onToggle;
   }
 
   @override
-  int get hashCode => key.hashCode ^ title.hashCode;
+  int get hashCode =>
+      key.hashCode ^ title.hashCode ^ isOn.hashCode ^ onToggle.hashCode;
 }
 
 /// generated route for
@@ -249,10 +274,17 @@ class TvControlRoute extends PageRouteInfo<TvControlRouteArgs> {
   TvControlRoute({
     Key? key,
     required String title,
+    required bool isOn,
+    required ValueChanged<bool> onToggle,
     List<PageRouteInfo>? children,
   }) : super(
           TvControlRoute.name,
-          args: TvControlRouteArgs(key: key, title: title),
+          args: TvControlRouteArgs(
+            key: key,
+            title: title,
+            isOn: isOn,
+            onToggle: onToggle,
+          ),
           initialChildren: children,
         );
 
@@ -262,32 +294,50 @@ class TvControlRoute extends PageRouteInfo<TvControlRouteArgs> {
     name,
     builder: (data) {
       final args = data.argsAs<TvControlRouteArgs>();
-      return TvControlPage(key: args.key, title: args.title);
+      return TvControlPage(
+        key: args.key,
+        title: args.title,
+        isOn: args.isOn,
+        onToggle: args.onToggle,
+      );
     },
   );
 }
 
 class TvControlRouteArgs {
-  const TvControlRouteArgs({this.key, required this.title});
+  const TvControlRouteArgs({
+    this.key,
+    required this.title,
+    required this.isOn,
+    required this.onToggle,
+  });
 
   final Key? key;
 
   final String title;
 
+  final bool isOn;
+
+  final ValueChanged<bool> onToggle;
+
   @override
   String toString() {
-    return 'TvControlRouteArgs{key: $key, title: $title}';
+    return 'TvControlRouteArgs{key: $key, title: $title, isOn: $isOn, onToggle: $onToggle}';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! TvControlRouteArgs) return false;
-    return key == other.key && title == other.title;
+    return key == other.key &&
+        title == other.title &&
+        isOn == other.isOn &&
+        onToggle == other.onToggle;
   }
 
   @override
-  int get hashCode => key.hashCode ^ title.hashCode;
+  int get hashCode =>
+      key.hashCode ^ title.hashCode ^ isOn.hashCode ^ onToggle.hashCode;
 }
 
 /// generated route for

@@ -33,6 +33,18 @@ class $AssetsImagesGen {
   AssetGenImage get googleLogo =>
       const AssetGenImage('assets/images/google_logo.png');
 
+  /// File path: assets/images/homix_Netflix_logo.png
+  AssetGenImage get homixNetflixLogo =>
+      const AssetGenImage('assets/images/homix_Netflix_logo.png');
+
+  /// File path: assets/images/homix_Youtube_logo.png
+  AssetGenImage get homixYoutubeLogo =>
+      const AssetGenImage('assets/images/homix_Youtube_logo.png');
+
+  /// File path: assets/images/homix_espn_logo.png
+  AssetGenImage get homixEspnLogo =>
+      const AssetGenImage('assets/images/homix_espn_logo.png');
+
   /// File path: assets/images/homix_logo.png
   AssetGenImage get homixLogo =>
       const AssetGenImage('assets/images/homix_logo.png');
@@ -40,6 +52,14 @@ class $AssetsImagesGen {
   /// File path: assets/images/homix_profile_photo.jpg
   AssetGenImage get homixProfilePhoto =>
       const AssetGenImage('assets/images/homix_profile_photo.jpg');
+
+  /// File path: assets/images/homix_spotify_logo.png
+  AssetGenImage get homixSpotifyLogo =>
+      const AssetGenImage('assets/images/homix_spotify_logo.png');
+
+  /// File path: assets/images/homix_tv_screen.png
+  AssetGenImage get homixTvScreen =>
+      const AssetGenImage('assets/images/homix_tv_screen.png');
 
   /// File path: assets/images/instagram_logo.png
   AssetGenImage get instagramLogo =>
@@ -58,8 +78,13 @@ class $AssetsImagesGen {
         acImage,
         appleLogo,
         googleLogo,
+        homixNetflixLogo,
+        homixYoutubeLogo,
+        homixEspnLogo,
         homixLogo,
         homixProfilePhoto,
+        homixSpotifyLogo,
+        homixTvScreen,
         instagramLogo,
         logoPng,
         logoPng1

@@ -50,14 +50,14 @@ class _PowerToggleState extends State<PowerToggle> {
             width: thumbSize,
             height: thumbSize,
             decoration: const BoxDecoration(
-              color: Colors.white,
+              color: HomixColors.secondaryColor,
               shape: BoxShape.circle,
             ),
             child: Icon(
               Icons.power_settings_new,
               size: 26,
               color: widget.value
-                  ? HomixColors.secondaryColor // green when ON
+                  ? HomixColors.whiteColor // green when ON
                   : Colors.grey.shade500,   // grey when OFF
             ),
           ),

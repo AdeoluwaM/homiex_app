@@ -17,7 +17,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  bool _voiceAutomationOn = true;
+  bool _voiceAutomationOn = true; // for switching voice automation
+
+  bool _toggleOn = true;
 
   int? _selectedIndex;
 
@@ -28,7 +30,7 @@ class _HomePageState extends State<HomePage> {
       'icon': Icons.ac_unit,
       'title': 'Air condition',
       'subtitle': 'Temperature',
-      'status': '-17c',
+      'status': '30c',
       // 'route': AirConditionRoute(),
     },
     {
@@ -166,18 +168,34 @@ class _HomePageState extends State<HomePage> {
                   // },
                   onTap: () {
                     final title = device['title'] as String;
+                    final status = device['status'] as String;
 
                     setState(() => _selectedIndex = index);
 
                     switch (index) {
                       case 0:
-                        context.router.push(AirConditionRoute(title: title));
+                        context.router.push(AirConditionRoute(
+                            title: title,
+                            // status: status,
+                            isOn: _isOn[index],
+                            onToggle: (value) {
+                              setState(() {
+                                _isOn[index] = value;
+                              });
+                            }));
                         break;
                       case 1:
                         context.router.push(LightControlRoute(title: title));
                         break;
                       case 2:
-                        context.router.push(TvControlRoute(title: title));
+                        context.router.push(TvControlRoute(
+                            title: title,
+                            isOn: _isOn[index],
+                            onToggle: ((value) {
+                              setState(() {
+                                _isOn[index] = value;
+                              });
+                            })));
                         break;
                       case 3:
                         context.router.push(MusicControlRoute(title: title));
