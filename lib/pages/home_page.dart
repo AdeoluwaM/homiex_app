@@ -185,7 +185,14 @@ class _HomePageState extends State<HomePage> {
                             }));
                         break;
                       case 1:
-                        context.router.push(LightControlRoute(title: title));
+                        context.router.push(LightControlRoute(
+                            title: title,
+                            isOn: _isOn[index],
+                            onToggle: (value) {
+                              setState(() {
+                                _isOn[index] = value;
+                              });
+                            }));
                         break;
                       case 2:
                         context.router.push(TvControlRoute(

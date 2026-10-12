@@ -120,10 +120,17 @@ class LightControlRoute extends PageRouteInfo<LightControlRouteArgs> {
   LightControlRoute({
     Key? key,
     required String title,
+    required bool isOn,
+    required ValueChanged<bool> onToggle,
     List<PageRouteInfo>? children,
   }) : super(
           LightControlRoute.name,
-          args: LightControlRouteArgs(key: key, title: title),
+          args: LightControlRouteArgs(
+            key: key,
+            title: title,
+            isOn: isOn,
+            onToggle: onToggle,
+          ),
           initialChildren: children,
         );
 
@@ -133,32 +140,50 @@ class LightControlRoute extends PageRouteInfo<LightControlRouteArgs> {
     name,
     builder: (data) {
       final args = data.argsAs<LightControlRouteArgs>();
-      return LightControlPage(key: args.key, title: args.title);
+      return LightControlPage(
+        key: args.key,
+        title: args.title,
+        isOn: args.isOn,
+        onToggle: args.onToggle,
+      );
     },
   );
 }
 
 class LightControlRouteArgs {
-  const LightControlRouteArgs({this.key, required this.title});
+  const LightControlRouteArgs({
+    this.key,
+    required this.title,
+    required this.isOn,
+    required this.onToggle,
+  });
 
   final Key? key;
 
   final String title;
 
+  final bool isOn;
+
+  final ValueChanged<bool> onToggle;
+
   @override
   String toString() {
-    return 'LightControlRouteArgs{key: $key, title: $title}';
+    return 'LightControlRouteArgs{key: $key, title: $title, isOn: $isOn, onToggle: $onToggle}';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! LightControlRouteArgs) return false;
-    return key == other.key && title == other.title;
+    return key == other.key &&
+        title == other.title &&
+        isOn == other.isOn &&
+        onToggle == other.onToggle;
   }
 
   @override
-  int get hashCode => key.hashCode ^ title.hashCode;
+  int get hashCode =>
+      key.hashCode ^ title.hashCode ^ isOn.hashCode ^ onToggle.hashCode;
 }
 
 /// generated route for

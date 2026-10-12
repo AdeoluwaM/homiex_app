@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:homix/components/homix_custom_botton.dart';
 import 'package:homix/components/homix_textfield.dart';
 import 'package:homix/gen/assets.gen.dart';
-import 'package:homix/pages/sign_in_page.dart';
 import 'package:homix/router/app_router.dart';
 import 'package:homix/theme/app_colors.dart';
 import 'package:homix/typography/text_style.dart';

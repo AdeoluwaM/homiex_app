@@ -45,6 +45,10 @@ class $AssetsImagesGen {
   AssetGenImage get homixEspnLogo =>
       const AssetGenImage('assets/images/homix_espn_logo.png');
 
+  /// File path: assets/images/homix_light_bulb.png
+  AssetGenImage get homixLightBulb =>
+      const AssetGenImage('assets/images/homix_light_bulb.png');
+
   /// File path: assets/images/homix_logo.png
   AssetGenImage get homixLogo =>
       const AssetGenImage('assets/images/homix_logo.png');
@@ -81,6 +85,7 @@ class $AssetsImagesGen {
         homixNetflixLogo,
         homixYoutubeLogo,
         homixEspnLogo,
+        homixLightBulb,
         homixLogo,
         homixProfilePhoto,
         homixSpotifyLogo,
