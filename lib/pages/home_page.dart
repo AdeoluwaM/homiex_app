@@ -205,7 +205,15 @@ class _HomePageState extends State<HomePage> {
                             })));
                         break;
                       case 3:
-                        context.router.push(MusicControlRoute(title: title));
+                        context.router.push(MusicControlRoute(
+                          title: title,
+                          isOn: _isOn[index],
+                          onToggle: (value) {
+                            setState(() {
+                              _isOn[index] = value;
+                            });
+                          },
+                        ));
                         break;
                     }
                   },

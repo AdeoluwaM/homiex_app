@@ -53,6 +53,10 @@ class $AssetsImagesGen {
   AssetGenImage get homixLogo =>
       const AssetGenImage('assets/images/homix_logo.png');
 
+  /// File path: assets/images/homix_music_speaker.png
+  AssetGenImage get homixMusicSpeaker =>
+      const AssetGenImage('assets/images/homix_music_speaker.png');
+
   /// File path: assets/images/homix_profile_photo.jpg
   AssetGenImage get homixProfilePhoto =>
       const AssetGenImage('assets/images/homix_profile_photo.jpg');
@@ -77,6 +81,10 @@ class $AssetsImagesGen {
   AssetGenImage get logoPng1 =>
       const AssetGenImage('assets/images/logo_png1.png');
 
+  /// File path: assets/images/now_playing_image.png
+  AssetGenImage get nowPlayingImage =>
+      const AssetGenImage('assets/images/now_playing_image.png');
+
   /// List of all assets
   List<AssetGenImage> get values => [
         acImage,
@@ -87,12 +95,14 @@ class $AssetsImagesGen {
         homixEspnLogo,
         homixLightBulb,
         homixLogo,
+        homixMusicSpeaker,
         homixProfilePhoto,
         homixSpotifyLogo,
         homixTvScreen,
         instagramLogo,
         logoPng,
-        logoPng1
+        logoPng1,
+        nowPlayingImage
       ];
 }
 

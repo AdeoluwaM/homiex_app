@@ -397,25 +397,25 @@ class _DialPainter extends CustomPainter {
       oldDelegate.progress != progress;
 }
 
-class _RoundButton extends StatelessWidget {
-  final IconData icon;
-  final VoidCallback onTap;
+// class _RoundButton extends StatelessWidget {
+//   final IconData icon;
+//   final VoidCallback onTap;
 
-  const _RoundButton({required this.icon, required this.onTap});
+//   const _RoundButton({required this.icon, required this.onTap});
 
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      color: const Color(0xFFE0E0E0),
-      shape: const CircleBorder(),
-      child: InkWell(
-        customBorder: const CircleBorder(),
-        onTap: onTap,
-        child: Padding(
-          padding: const EdgeInsets.all(14),
-          child: Icon(icon, size: 28, color: Colors.black),
-        ),
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Material(
+//       color: const Color(0xFFE0E0E0),
+//       shape: const CircleBorder(),
+//       child: InkWell(
+//         customBorder: const CircleBorder(),
+//         onTap: onTap,
+//         child: Padding(
+//           padding: const EdgeInsets.all(14),
+//           child: Icon(icon, size: 28, color: Colors.black),
+//         ),
+//       ),
+//     );
+//   }
+// }
