@@ -1,4 +1,6 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:homix/components/gadget_card.dart';
 import 'package:homix/components/homix_nav_bar.dart';
@@ -55,6 +57,14 @@ class _HomePageState extends State<HomePage> {
       // 'route': MusicControlRoute(),
     },
   ];
+
+  void signOut () {
+    CircularProgressIndicator();
+    FirebaseAuth.instance.signOut();
+    Navigator.pop(context);
+    // CircularProgressIndicator();
+    context.router.push(SignInRoute());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -224,6 +234,15 @@ class _HomePageState extends State<HomePage> {
               height: 40,
             ),
             HomixNavBar(),
+            SizedBox(height: 20),
+            GestureDetector(
+              onTap: signOut,
+              child: Text(
+                'Sign Out',
+                style: AppTextStyle.appSubTitle
+                    .copyWith(color: HomixColors.tertiaryColor, fontSize: 12),
+              ),
+            )
           ],
         ),
       ),
